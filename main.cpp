@@ -24,17 +24,31 @@ struct Customer {
 
 int main() {
     // Initializing a Customer object with values
-    Customer customer = {
-        "Jordan Carter",  // Assigning name
-        18,                  // Assigning age
-        {"123 balh blah st", "Berkeley", 94707} // Assigning address (street, city, zip code)
-    };
-
     // Displaying customer details
-    cout << "The Customer Name: " << customer.name << endl;
+    
+    Customer customer;
+    
+    cout << "Whats your name?  " << endl;
+    getline(cin, customer.name);
+    cout << "Whats your age? " << endl;
+    cin >> customer.age;
+    cin.ignore(); //used for getline to noet get skipped
+    cout << "What's your street address? " << endl;
+    getline(cin, customer.address.street);  // Reads full street address
+
+    cout << "Which city do you live in? " << endl; ;
+    getline(cin, customer.address.city);  // Reads city name
+
+    cout << "Enter your zip code: ";
+    cin >> customer.address.zipCode;
+
+    
+    cout << "Their name is: " << customer.name << endl;
     cout << "Their Age: " << customer.age << endl;
-    cout << "Their Address: " << customer.address.street << ", "
-         << customer.address.city << ", " << customer.address.zipCode << endl;
+    cout << "Their Address: "<< customer.address.city << ", " << customer.address.street << ", " << customer.address.zipCode << endl;
 
     return 0;
 }
+
+
+
